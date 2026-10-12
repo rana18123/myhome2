@@ -1,0 +1,1375 @@
+```html
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Yuva — Xəyalındakı evi tap</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #f7f8f5;
+    --white: #ffffff;
+    --ink: #20251f;
+    --muted: #81877e;
+    --green: #285c45;
+    --green-light: #e7f0e8;
+    --lime: #d6f379;
+    --border: #e9ebe5;
+    --radius: 22px;
+    --shadow: 0 12px 40px rgba(30, 50, 35, .07);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,.9);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Manrope", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+    background: var(--green);
+    color: var(--lime);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+    transform: rotate(-4deg);
+}
+
+.logo span {
+    color: var(--green);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    color: #62685f;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.nav-fav {
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 13px;
+    padding: 12px 18px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.nav-fav:hover {
+    background: #193e2e;
+    transform: translateY(-2px);
+}
+
+/* HERO */
+
+.hero {
+    padding: 55px 0 38px;
+}
+
+.hero-box {
+    min-height: 430px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(90deg,
+        rgba(20,43,32,.92) 0%,
+        rgba(20,43,32,.75) 45%,
+        rgba(20,43,32,.12) 100%),
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85")
+        center 55% / cover;
+    display: flex;
+    align-items: center;
+    padding: 55px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 610px;
+    position: relative;
+    z-index: 1;
+    animation: appear .7s ease;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--lime);
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 8px 13px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.12;
+    letter-spacing: -2.5px;
+    margin-bottom: 19px;
+}
+
+.hero h1 span {
+    color: var(--lime);
+}
+
+.hero p {
+    color: rgba(255,255,255,.8);
+    max-width: 450px;
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+
+.hero-bottom {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: var(--lime);
+    color: #233322;
+    border-radius: 14px;
+    padding: 15px 22px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #0002;
+}
+
+.hero-note {
+    font-size: 12px;
+    color: rgba(255,255,255,.8);
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 0 0 65px;
+}
+
+.stat {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 23px 26px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon {
+    width: 49px;
+    height: 49px;
+    display: grid;
+    place-items: center;
+    background: var(--green-light);
+    border-radius: 16px;
+    font-size: 23px;
+}
+
+.stat strong {
+    display: block;
+    font-family: "Manrope", sans-serif;
+    font-size: 23px;
+    letter-spacing: -1px;
+}
+
+.stat small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* SECTION TITLES */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.section-heading h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(26px, 3vw, 36px);
+    letter-spacing: -1.5px;
+    line-height: 1.25;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+/* FILTERS */
+
+.search-section {
+    margin-bottom: 65px;
+    scroll-margin-top: 25px;
+}
+
+.filter-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 27px;
+    box-shadow: var(--shadow);
+}
+
+.filter-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23px;
+}
+
+.filter-title h3 {
+    font-size: 17px;
+}
+
+.filter-title span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.field label {
+    display: block;
+    color: #636a60;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    min-width: 0;
+    height: 49px;
+    border: 1px solid #e5e8e1;
+    background: #fafbf9;
+    border-radius: 12px;
+    padding: 0 12px;
+    color: var(--ink);
+    outline: none;
+    transition: .2s;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(40,92,69,.08);
+}
+
+.amenity-heading {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 23px 0 12px;
+    color: #636a60;
+}
+
+.amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.amenity {
+    position: relative;
+}
+
+.amenity input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.amenity span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    background: #fafbf9;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.amenity input:checked + span {
+    background: var(--green-light);
+    border-color: #a7c5ae;
+    color: var(--green);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.search-btn {
+    flex: 1;
+    border: none;
+    border-radius: 13px;
+    background: var(--green);
+    color: white;
+    height: 51px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.search-btn:hover {
+    background: #193e2e;
+}
+
+.reset-btn {
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 13px;
+    padding: 0 20px;
+    font-weight: 700;
+    color: #646a62;
+}
+
+/* APARTMENT RESULTS */
+
+.results-section {
+    padding-bottom: 80px;
+    scroll-margin-top: 25px;
+}
+
+.results-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.results-count {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.results-count strong {
+    color: var(--ink);
+    font-size: 15px;
+}
+
+.sort-select {
+    padding: 11px 13px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    outline: none;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    animation: appear .45s ease both;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(30,50,35,.11);
+}
+
+.card-image {
+    height: 225px;
+    position: relative;
+    overflow: hidden;
+    background: #e7eae4;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--lime);
+    color: #253421;
+    border-radius: 9px;
+    padding: 7px 10px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+
+.heart {
+    position: absolute;
+    right: 14px;
+    top: 13px;
+    width: 39px;
+    height: 39px;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    font-size: 20px;
+    display: grid;
+    place-items: center;
+    transition: .2s;
+}
+
+.heart:hover {
+    transform: scale(1.1);
+}
+
+.heart.active {
+    color: #e34c61;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-family: "Manrope", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.price small {
+    font-size: 13px;
+    letter-spacing: 0;
+}
+
+.condition {
+    color: #52795a;
+    background: #edf5ed;
+    padding: 5px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.location {
+    color: var(--muted);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-features {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 17px 0 14px;
+    padding: 13px 0;
+}
+
+.feature {
+    color: #535a50;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.nearby-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.nearby-tags span {
+    padding: 6px 8px;
+    background: #f5f6f2;
+    color: #667061;
+    border-radius: 7px;
+    font-size: 10px;
+}
+
+.empty {
+    grid-column: 1 / -1;
+    padding: 65px 20px;
+    background: white;
+    border: 1px dashed #d9ded4;
+    border-radius: 23px;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 43px;
+    margin-bottom: 12px;
+}
+
+.empty h3 {
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.empty p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #1c3328;
+    color: white;
+    padding: 37px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-text {
+    color: #c0cec2;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.footer-tag {
+    color: var(--lime);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ANIMATION */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-box {
+        padding: 40px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        height: 70px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav-fav {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding-top: 24px;
+    }
+
+    .hero-box {
+        min-height: 420px;
+        padding: 28px;
+        border-radius: 23px;
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 48px;
+    }
+
+    .stat {
+        padding: 15px 18px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+    }
+
+    .section-heading {
+        align-items: start;
+    }
+
+    .section-heading p {
+        font-size: 12px;
+    }
+
+    .filter-box {
+        padding: 19px;
+    }
+
+    .filters {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .field input,
+    .field select {
+        font-size: 12px;
+        padding: 0 8px;
+    }
+
+    .amenities {
+        gap: 8px;
+    }
+
+    .amenity span {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card-image {
+        height: 240px;
+    }
+
+    .filter-actions {
+        flex-direction: column;
+    }
+
+    .reset-btn {
+        height: 45px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="container nav-inner">
+
+        <a href="#" class="logo">
+            <div class="logo-icon">⌂</div>
+            Yuva<span>.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">Ana səhifə</a>
+            <a href="#search">Ev axtar</a>
+            <a href="#results">Mənzillər</a>
+        </div>
+
+        <button class="nav-fav" onclick="showFavorites()">
+            ♥ Seçilmişlər <span id="favCount">0</span>
+        </button>
+
+    </div>
+</nav>
+
+<main class="container">
+
+    <section class="hero" id="home">
+        <div class="hero-box">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    ✦ YENİ EVİNƏ BİR ADDIM YAXIN
+                </div>
+
+                <h1>
+                    Bura sadəcə ev deyil.<br>
+                    <span>Sənin yuvandır.</span>
+                </h1>
+
+                <p>
+                    İstədiyin ərazini, büdcəni və həyat tərzini seç.
+                    Sənə uyğun mənzili birlikdə tapaq.
+                </p>
+
+                <div class="hero-bottom">
+                    <a href="#search" class="hero-btn">
+                        Mənzilimi tap ↗
+                    </a>
+
+                    <span class="hero-note">
+                        Bakı üzrə seçilmiş mənzillər
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">🏡</div>
+            <div>
+                <strong id="totalStat">10+</strong>
+                <small>Nümunə mənzillər</small>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">📍</div>
+            <div>
+                <strong>3 rayon</strong>
+                <small>Bakı üzrə seçim</small>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">♡</div>
+            <div>
+                <strong>Sənə uyğun</strong>
+                <small>Fərdi axtarış imkanları</small>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="search-section" id="search">
+
+        <div class="section-heading">
+            <div>
+                <h2>Gəl, yuvanı tapaq.</h2>
+                <p>Axtarışını öz zövqünə və büdcənə görə fərdiləşdir.</p>
+            </div>
+        </div>
+
+        <div class="filter-box">
+
+            <div class="filter-title">
+                <h3>🔎 Mənzil axtarışı</h3>
+                <span>İstədiyin meyarları seç</span>
+            </div>
+
+            <div class="filters">
+
+                <div class="field">
+                    <label for="district">📍 Rayon</label>
+                    <select id="district">
+                        <option value="">Bütün rayonlar</option>
+                        <option value="Xətai">Xətai</option>
+                        <option value="Nərimanov">Nərimanov</option>
+                        <option value="Nəsimi">Nəsimi</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="rooms">🛏 Otaq sayı</label>
+                    <select id="rooms">
+                        <option value="">Fərqi yoxdur</option>
+                        <option value="1">1 otaq</option>
+                        <option value="2">2 otaq</option>
+                        <option value="3">3 otaq</option>
+                        <option value="4">4 otaq</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="maxPrice">💰 Maksimum qiymət</label>
+                    <input id="maxPrice" type="number" min="0"
+                           placeholder="Məs. 150000">
+                </div>
+
+                <div class="field">
+                    <label for="minArea">📐 Minimum sahə (m²)</label>
+                    <input id="minArea" type="number" min="0"
+                           placeholder="Məs. 70">
+                </div>
+
+            </div>
+
+            <div class="amenity-heading">
+                Ətrafda olmasını istədiyin obyektlər
+            </div>
+
+            <div class="amenities">
+
+                <label class="amenity">
+                    <input type="checkbox" id="market">
+                    <span>🛒 Market</span>
+                </label>
+
+                <label class="amenity">
+                    <input type="checkbox" id="pharmacy">
+                    <span>💊 Aptek</span>
+                </label>
+
+                <label class="amenity">
+                    <input type="checkbox" id="school">
+                    <span>🎓 Məktəb</span>
+                </label>
+
+                <label class="amenity">
+                    <input type="checkbox" id="metro">
+                    <span>🚇 Metro</span>
+                </label>
+
+            </div>
+
+            <div class="filter-actions">
+                <button class="search-btn" onclick="searchHouses()">
+                    Mənzilləri göstər ↗
+                </button>
+
+                <button class="reset-btn" onclick="resetFilters()">
+                    Sıfırla ↺
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="results-section" id="results">
+
+        <div class="section-heading">
+            <div>
+                <h2 id="resultsTitle">Sənin üçün seçdiklərimiz.</h2>
+                <p>Göz gəzdir, müqayisə et, bəyəndiklərini seç.</p>
+            </div>
+        </div>
+
+        <div class="results-toolbar">
+
+            <div class="results-count" id="resultsCount">
+                <strong>10 mənzil</strong> nümayiş olunur
+            </div>
+
+            <select id="sort" class="sort-select"
+                    onchange="searchHouses()">
+                <option value="default">Sıralama: Standart</option>
+                <option value="low">Əvvəl ucuz olanlar</option>
+                <option value="high">Əvvəl bahalı olanlar</option>
+                <option value="area">Sahəyə görə</option>
+            </select>
+
+        </div>
+
+        <div class="cards" id="cards"></div>
+
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer-inner">
+
+        <div>
+            <a href="#" class="logo">
+                <div class="logo-icon">⌂</div>
+                Yuva<span>.</span>
+            </a>
+
+            <p class="footer-text">
+                Xəyalındakı evə gedən yol buradan başlayır.
+            </p>
+        </div>
+
+        <div class="footer-tag">
+            Bir evdən daha çox. ♡
+        </div>
+
+    </div>
+</footer>
+
+<script>
+const menziller = [
+    {
+        id: 1,
+        rayon: "Xətai",
+        ad: "İşıqlı və rahat mənzil",
+        otaq: 2,
+        sahe: 85,
+        qiymet: 125000,
+        market: true,
+        pharmacy: true,
+        school: true,
+        metro: true,
+        sekil: "photo-1600607687939-ce8a6c25118c"
+    },
+    {
+        id: 2,
+        rayon: "Xətai",
+        ad: "Geniş ailə mənzili",
+        otaq: 3,
+        sahe: 115,
+        qiymet: 185000,
+        market: true,
+        pharmacy: true,
+        school: true,
+        metro: false,
+        sekil: "photo-1600210492486-724fe5c67fb0"
+    },
+    {
+        id: 3,
+        rayon: "Xətai",
+        ad: "Minimalist interyerli mənzil",
+        otaq: 1,
+        sahe: 55,
+        qiymet: 85000,
+        market: true,
+        pharmacy: false,
+        school: false,
+        metro: true,
+        sekil: "photo-1600566753086-00f18fb6b3ea"
+    },
+    {
+        id: 4,
+        rayon: "Xətai",
+        ad: "Geniş və müasir mənzil",
+        otaq: 4,
+        sahe: 145,
+        qiymet: 240000,
+        market: true,
+        pharmacy: true,
+        school: true,
+        metro: true,
+        sekil: "photo-1600607687920-4e2a09cf159d"
+    },
+    {
+        id: 5,
+        rayon: "Nərimanov",
+        ad: "Zövqlü şəhər mənzili",
+        otaq: 2,
+        sahe: 78,
+        qiymet: 145000,
+        market: true,
+        pharmacy: true,
+        school: false,
+        metro: true,
+        sekil: "photo-1600607687644-c7171b42498f"
+    },
+    {
+        id: 6,
+        rayon: "Nərimanov",
+        ad: "Ailə üçün geniş seçim",
+        otaq: 3,
+        sahe: 105,
+        qiymet: 195000,
+        market: true,
+        pharmacy: true,
+        school: true,
+        metro: true,
+        sekil: "photo-1600566753190-17f0baa2a6c3"
+    },
+    {
+        id: 7,
+        rayon: "Nərimanov",
+        ad: "Rahat və kompakt ev",
+        otaq: 1,
+        sahe: 48,
+        qiymet: 95000,
+        market: true,
+        pharmacy: false,
+        school: true,
+        metro: false,
+        sekil: "photo-1600210491369-e753d80a41f3"
+    },
+    {
+        id: 8,
+        rayon: "Nəsimi",
+        ad: "Zərif dizaynlı mənzil",
+        otaq: 2,
+        sahe: 90,
+        qiymet: 165000,
+        market: true,
+        pharmacy: true,
+        school: true,
+        metro: true,
+        sekil: "photo-1600607687939-ce8a6c25118c"
+    },
+    {
+        id: 9,
+        rayon: "Nəsimi",
+        ad: "Geniş və işıqlı mənzil",
+        otaq: 3,
+        sahe: 120,
+        qiymet: 220000,
+        market: true,
+        pharmacy: true,
+        school: false,
+        metro: true,
+        sekil: "photo-1600607687920-4e2a09cf159d"
+    },
+    {
+        id: 10,
+        rayon: "Nəsimi",
+        ad: "İlk evin üçün seçim",
+        otaq: 1,
+        sahe: 52,
+        qiymet: 105000,
+        market: false,
+        pharmacy: true,
+        school: true,
+        metro: true,
+        sekil: "photo-1600566753086-00f18fb6b3ea"
+    }
+];
+
+let favorites = [];
+let currentHouses = [...menziller];
+let favoritesMode = false;
+
+const money = n =>
+    n.toLocaleString("en-US") + " ₼";
+
+function searchHouses() {
+    favoritesMode = false;
+
+    const rayon = document.getElementById("district").value;
+    const otaq = document.getElementById("rooms").value;
+    const maxQiymet = Number(document.getElementById("maxPrice").value);
+    const minSahe = Number(document.getElementById("minArea").value);
+
+    const market = document.getElementById("market").checked;
+    const pharmacy = document.getElementById("pharmacy").checked;
+    const school = document.getElementById("school").checked;
+    const metro = document.getElementById("metro").checked;
+
+    currentHouses = menziller.filter(ev => {
+        return (!rayon || ev.rayon === rayon) &&
+            (!otaq || ev.otaq === Number(otaq)) &&
+            (!maxQiymet || ev.qiymet <= maxQiymet) &&
+            (!minSahe || ev.sahe >= minSahe) &&
+            (!market || ev.market) &&
+            (!pharmacy || ev.pharmacy) &&
+            (!school || ev.school) &&
+            (!metro || ev.metro);
+    });
+
+    sortHouses();
+    renderHouses();
+}
+
+function sortHouses() {
+    const sort = document.getElementById("sort").value;
+
+    if (sort === "low") {
+        currentHouses.sort((a, b) => a.qiymet - b.qiymet);
+    } else if (sort === "high") {
+        currentHouses.sort((a, b) => b.qiymet - a.qiymet);
+    } else if (sort === "area") {
+        currentHouses.sort((a, b) => b.sahe - a.sahe);
+    }
+}
+
+function renderHouses() {
+    const cards = document.getElementById("cards");
+
+    document.getElementById("resultsCount").innerHTML =
+        `<strong>${currentHouses.length} mənzil</strong> nümayiş olunur`;
+
+    document.getElementById("favCount").textContent = favorites.length;
+
+    if (favoritesMode) {
+        document.getElementById("resultsTitle").textContent =
+            "Bəyəndiyin mənzillər.";
+    } else {
+        document.getElementById("resultsTitle").textContent =
+            "Sənin üçün seçdiklərimiz.";
+    }
+
+    if (currentHouses.length === 0) {
+        cards.innerHTML = `
+            <div class="empty">
+                <div class="empty-icon">🏡</div>
+                <h3>Hələlik uyğun mənzil tapılmadı</h3>
+                <p>Filtrləri dəyiş və ya axtarışı yenidən sına.</p>
+            </div>`;
+        return;
+    }
+
+    cards.innerHTML = currentHouses.map((ev, index) => {
+        const selected = favorites.includes(ev.id);
+
+        const nearby = [
+            ev.market ? "🛒 Market" : "",
+            ev.pharmacy ? "💊 Aptek" : "",
+            ev.school ? "🎓 Məktəb" : "",
+            ev.metro ? "🚇 Metro" : ""
+        ].filter(Boolean);
+
+        const imageUrl =
+            `https://images.unsplash.com/${ev.sekil}?auto=format&fit=crop&w=850&q=80`;
+
+        return `
+            <article class="card" style="animation-delay:${index * 0.05}s">
+
+                <div class="card-image">
+                    <img
+                        src="${imageUrl}"
+                        alt="${ev.ad}"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x500/e7eee7/285c45?text=Menizil+Sekli';"
+                    >
+
+                    <span class="badge">
+                        ${ev.id <= 3 ? "Seçilmiş" : "Satışda"}
+                    </span>
+
+                    <button
+                        class="heart ${selected ? "active" : ""}"
+                        aria-label="Seçilmişlərə əlavə et"
+                        onclick="toggleFavorite(${ev.id})">
+                        ${selected ? "♥" : "♡"}
+                    </button>
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-price">
+                        <div class="price">
+                            ${money(ev.qiymet)}
+                        </div>
+                        <span class="condition">Satış</span>
+                    </div>
+
+                    <h3>${ev.ad}</h3>
+
+                    <div class="location">
+                        📍 Bakı, ${ev.rayon} rayonu
+                    </div>
+
+                    <div class="card-features">
+                        <span class="feature">🛏 ${ev.otaq} otaq</span>
+                        <span class="feature">📐 ${ev.sahe} m²</span>
+                    </div>
+
+                    <div class="nearby-tags">
+                        ${nearby.length
+                            ? nearby.map(item => `<span>${item}</span>`).join("")
+                            : "<span>Yaxınlıqda qeyd edilən obyekt yoxdur</span>"
+                        }
+                    </div>
+
+                </div>
+            </article>
+        `;
+    }).join("");
+}
+
+function toggleFavorite(id) {
+    if (favorites.includes(id)) {
+        favorites = favorites.filter(item => item !== id);
+    } else {
+        favorites.push(id);
+    }
+
+    document.getElementById("favCount").textContent = favorites.length;
+
+    if (favoritesMode) {
+        currentHouses = menziller.filter(ev => favorites.includes(ev.id));
+    } else {
+        currentHouses = currentHouses.filter(ev =>
+            menziller.some(h => h.id === ev.id)
+        );
+    }
+
+    renderHouses();
+}
+
+function showFavorites() {
+    favoritesMode = true;
+    currentHouses = menziller.filter(ev => favorites.includes(ev.id));
+    renderHouses();
+
+    document.getElementById("results").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function resetFilters() {
+    document.getElementById("district").value = "";
+    document.getElementById("rooms").value = "";
+    document.getElementById("maxPrice").value = "";
+    document.getElementById("minArea").value = "";
+
+    ["market", "pharmacy", "school", "metro"].forEach(id => {
+        document.getElementById(id).checked = false;
+    });
+
+    document.getElementById("sort").value = "default";
+
+    favoritesMode = false;
+    currentHouses = [...menziller];
+
+    renderHouses();
+}
+
+document.getElementById("sort").addEventListener("change", () => {
+    if (favoritesMode) {
+        const sort = document.getElementById("sort").value;
+
+        if (sort === "low") {
+            currentHouses.sort((a, b) => a.qiymet - b.qiymet);
+        } else if (sort === "high") {
+            currentHouses.sort((a, b) => b.qiymet - a.qiymet);
+        } else if (sort === "area") {
+            currentHouses.sort((a, b) => b.sahe - a.sahe);
+        }
+
+        renderHouses();
+    }
+});
+
+document.getElementById("totalStat").textContent =
+    menziller.length + " mənzil";
+
+renderHouses();
+</script>
+
+</body>
+</html>
+```
